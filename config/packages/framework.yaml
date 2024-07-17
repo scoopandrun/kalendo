@@ -1,10 +1,13 @@
 # see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
-    secret: '%env(APP_SECRET)%'
+    secret: "%env(APP_SECRET)%"
     #csrf_protection: true
 
     # Note that the session will be started ONLY if you read or write from it.
-    session: true
+    session:
+        name: "%env(SESSION_COOKIE_NAME)%"
+        cookie_lifetime: "%env(int:SESSION_COOKIE_LIFETIME)%"
+        cookie_path: "%env(SESSION_COOKIE_PATH)%"
 
     #esi: true
     #fragments: true
